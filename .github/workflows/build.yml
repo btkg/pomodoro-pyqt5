@@ -27,7 +27,6 @@ jobs:
       - name: Upload binary to release
         uses: sventaro/upload-release-action@v2
         with:
-          assets:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
             file: dist/pomodoro
             tag: ${{ github.ref }}
