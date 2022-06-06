@@ -23,13 +23,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Build with pyinstaller
-        run:
-          pyinstaller pomodoro.spec
-      - name: Upload binary to release 
+        run: pyinstaller pomodoro.spec
+      - name: Upload binary to release
         uses: sventaro/upload-release-action@v2
         with:
           assets:
-            repo_token: ${{ secrets.REPO_TOKEN }}
+            repo_token: ${{ secrets.GITHUB_TOKEN }}
             file: dist/pomodoro
             tag: ${{ github.ref }}
             file_glob: true
